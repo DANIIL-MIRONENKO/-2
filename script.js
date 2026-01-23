@@ -18,7 +18,7 @@ function getCookieValue(cookieName) {
     // Якщо кукі з вказаним іменем не знайдено, повертаємо порожній рядок або можна повернути null
     return '';
 }
-
+/*
 let themeBtn = document.querySelector("#themeToggle")
 
 function setTheme(theme) {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
+*/
 // Отримуємо дані про товари з JSON файлу
 async function getProducts() {
     let response = await fetch("store_db.json");
