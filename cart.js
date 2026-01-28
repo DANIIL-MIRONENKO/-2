@@ -28,31 +28,42 @@ function showCartList() {
 showCartList()
 
 cart_list.addEventListener('change', (event) => {
-        let target = event.target 
-        const itemTitle = target.getAttribute('data-item')
-        const newQuantity = +target.value
-        if (newQuantity > 0) {
-            cart.updateQuantity(itemTitle, newQuantity)
-            showCartList() // Оновити список товарів у кошику
-        }
-    });
+    let target = event.target
+    const itemTitle = target.getAttribute('data-item')
+    const newQuantity = +target.value
+    if (newQuantity > 0) {
+        cart.updateQuantity(itemTitle, newQuantity)
+        showCartList() // Оновити список товарів у кошику
+    }
+});
 
-    //анімація появи кошика поступова поява кошика
-    anime({
-        targets: '.cart',
-        opacity: 1, // Кінцева прозорість (1 - повністю видимий)
-        duration: 500, // Тривалість анімації в мілісекундах
-        easing: 'easeInOutQuad'
-    })
+//анімація появи кошика поступова поява кошика
+anime({
+    targets: '.cart',
+    opacity: 1, // Кінцева прозорість (1 - повністю видимий)
+    duration: 500, // Тривалість анімації в мілісекундах
+    easing: 'easeInOutQuad'
+})
+function completeOrder() {
+    alert("Ваше замовлення прийде за 30 хвилин 🕒")
 
-orderBtn.addEventListener("click", function (event) {
-        orderBtn.style.display = "none"
-        orderSection.style.display = "block"
-        anime({
-            targets: '.order',
-            opacity: 1, // Кінцева прозорість (1 - повністю видимий)
-            duration: 1000, // Тривалість анімації в мілісекундах
-            easing: 'easeInOutQuad'
-        })
+    // очищаємо кошик
+    cart.items = {}
+
+    // оновлюємо лічильник
+    cart.updateCounter()
+
+    // очищаємо cookies
+    document.cookie = `cart={}; max-age=${60 * 60 * 24 * 7}; path=/`
+
+    // оновлюємо відображення
+    showCartList()
+}
+
+orderBtn.addEventListener("click", function () {
+    completeOrder()
+
+    orderBtn.style.display = "none"
+    orderSection.style.display = "none"
 })
 

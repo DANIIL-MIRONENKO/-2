@@ -54,7 +54,8 @@ header{
 }
 
 .my-card:hover {
-    background: #DCE5E2;
+    background: #ca92ff;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
     cursor: pointer;
     transition: background .2s linear;
     color: #272727;
@@ -86,7 +87,7 @@ header{
     font-size: 1rem;
     line-height: 1rem;
     /* 120% */
-    color: rgb(154, 131, 255);
+    color:  rgb(42, 44, 44);
     display: flex;
     gap: 5px;
     align-items: center;
@@ -96,7 +97,6 @@ header{
     width: 244px;
     height: 214px;
     object-fit: contain;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
 }
 
 .container-cards {
@@ -214,7 +214,7 @@ header.fixed {
 .cart-counter {
     background: #fff;
     font-size: small;
-    color: rgb(135, 91, 255);
+    color:   rgb(112, 255, 219);
     border-radius: 100px;
     padding: 0 .2em;
     position: absolute;
@@ -253,4 +253,8 @@ header.fixed {
     75% {
         transform: rotateZ(2deg);
     }
+}
+.nav-link{
+    font-weight: 600;
+    color: white !important;
 }
